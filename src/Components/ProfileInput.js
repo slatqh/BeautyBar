@@ -36,18 +36,25 @@ export const ProfileInput = ({
 
 const styles = StyleSheet.create({
   container: {
+    margin: 0,
+    padding: 0,
     borderBottomColor: Colors.lightgrey,
     borderBottomWidth: 1,
-    marginVertical: 10,
+    // marginVertical: 10,
   },
   text: {
+    padding: 0,
+    margin: 0,
     color: Colors.purple,
     fontFamily: 'montserrat',
     fontSize: 14,
+
   },
   textInput: {
-    marginBottom: 5,
+    // marginBottom: 5,
     color: Colors.purple,
     fontSize: 14,
+    paddingBottom: 0,
+    marginBottom: 0,
   },
 });

@@ -17,7 +17,7 @@ export default class BeautyIcon extends Component {
         <View style={{ alignItems: 'center' }}>
           <Image
             source={this.props.source}
-            style={[active ? { tintColor: Colors.purple } : null, this.props.title === 'skin' ? styles.skin : styles.image]}
+            style={[styles.imageMain, active ? { tintColor: Colors.purple } : null, this.props.title === 'skin' ? styles.skin : styles.image]}
             resizeMode='cover'
           />
           <Text
@@ -35,8 +35,8 @@ export default class BeautyIcon extends Component {
 const styles = StyleSheet.create({
   image: {
     // flex: 1,
-    height: 25,
-    width: 25,
+    height: 20,
+    width: 20,
     overflow: 'visible',
   },
   skin: {
@@ -49,5 +49,7 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat-medium',
     fontSize: 12,
     paddingTop: 5,
+  },
+  imageMain: {
   },
 });

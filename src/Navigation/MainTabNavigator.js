@@ -26,7 +26,7 @@ export const AuthStack = createStackNavigator({
   defaultNavigationOptions: {
     header: null,
   },
-  initialRouteName: 'Auth',
+  initialRouteName: 'Signup',
 });
 
 const FeedStack = createStackNavigator({
@@ -95,7 +95,7 @@ export const App = createBottomTabNavigator({
   Profile: ProfileStack,
   Settings: SettingsStack,
 }, {
-  initialRouteName: 'Settings',
+  initialRouteName: 'Feed',
   tabBarOptions: {
     activeTintColor: Colors.purple,
     labelStyle: () => styles.labelStyle,

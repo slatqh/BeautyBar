@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, TextInput } from 'react-native';
+import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { Avatar, CheckBox, Rating } from 'react-native-elements';
 import { ProfileInput, TextCustom, CustomButton } from '../../Components';
 import Colors from '../../../constans/Colors';
@@ -23,7 +23,10 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <ScrollView
+        contentContainerStyle={{ flex: 1 }}
+        bounces={false}
+      >
         <View style={styles.topContainer}>
           <Avatar
             containerStyle={{ alignSelf: 'center' }}
@@ -115,25 +118,25 @@ export default class Profile extends Component {
               onPress={() => this.setState({ female: true, male: false })}
             />
           </View>
-          <View style={{ flex: 0.4 }} />
-
-          <CustomButton
-            gradient={this.state.editProfile}
-            style={{ marginTop: 20 }}
-            border={!this.state.editProfile}
-            title={this.state.editProfile ? 'SAVE' : 'EDIT PROFILE'}
-            titleColor={Colors.purple}
-            onPress={() => this.setState({ editProfile: !this.state.editProfile })}
-          />
+          <View style={{ flex: 0.5, justifyContent: 'center' }}>
+            <CustomButton
+              gradient={this.state.editProfile}
+              style={{ marginTop: 20 }}
+              border={!this.state.editProfile}
+              title={this.state.editProfile ? 'SAVE' : 'EDIT PROFILE'}
+              titleColor={Colors.purple}
+              onPress={() => this.setState({ editProfile: !this.state.editProfile })}
+            />
+          </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   topContainer: {
-    flex: 1, justifyContent: 'center', alignItems: 'center',
+    flex: 0.8, justifyContent: 'center', alignItems: 'center',
   },
   buttonContainer: {
     borderWidth: 2,
@@ -152,7 +155,8 @@ const styles = StyleSheet.create({
   wrap: {
     flex: 2,
     paddingHorizontal: 25,
-    alignContent: 'flex-start',
+    justifyContent: 'space-evenly',
+    // alignContent: 'flex-start',
   },
   checkBox: {
     backgroundColor: 'white',

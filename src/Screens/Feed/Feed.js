@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, Image, StyleSheet } from 'react-native';
+import { View, Text, ScrollView, Image, Dimensions, StyleSheet } from 'react-native';
 import { CardView, BeautyIcon, BeautyTip, CardService } from '../../Components';
 import Colors from '../../../constans/Colors';
+
+const { width } = Dimensions.get('window');
 
 export default class FeedScreen extends Component {
   constructor(props) {
@@ -16,27 +18,29 @@ export default class FeedScreen extends Component {
         <ScrollView
           showsVerticalScrollIndicator={false}
         >
-          <Image
-            style={styles.image}
-            source={require('../../../assets/images/map.jpg')}
-          />
+          <View style={{ flex: 0.5 }}>
+            <Image
+              style={styles.image}
+              source={require('../../../assets/images/map.jpg')}
+            />
+          </View>
           <View style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.devider} />
             <ScrollView
-              contentContainerStyle={styles.container}
+              // contentContainerStyle={styles.container}
               horizontal
               bounces='none'
               showsHorizontalScrollIndicator={false}
             >
-
-              <BeautyIcon title='makeup' source={require('../../../assets/icons/makeup.png')} />
-              <BeautyIcon title='hair' source={require('../../../assets/icons/hair.png')} />
-              <BeautyIcon title='nails' source={require('../../../assets/icons/nails.png')} />
-              <BeautyIcon title='spa' source={require('../../../assets/icons/spa.png')} />
-              <BeautyIcon title='skin' source={require('../../../assets/icons/skin.png')} />
-              <BeautyIcon title='barber' source={require('../../../assets/icons/barber.png')} />
-              <BeautyIcon title='eye' source={require('../../../assets/icons/eye.png')} />
-
+              <View style={styles.container}>
+                <BeautyIcon title='makeup' source={require('../../../assets/icons/makeup.png')} />
+                <BeautyIcon title='hair' source={require('../../../assets/icons/hair.png')} />
+                <BeautyIcon title='nails' source={require('../../../assets/icons/nails.png')} />
+                <BeautyIcon title='spa' source={require('../../../assets/icons/spa.png')} />
+                <BeautyIcon title='skin' source={require('../../../assets/icons/skin.png')} />
+                <BeautyIcon title='barber' source={require('../../../assets/icons/barber.png')} />
+                <BeautyIcon title='eye' source={require('../../../assets/icons/eye.png')} />
+              </View>
             </ScrollView>
             <View style={styles.view}>
               <Text style={{ margin: 10 }}>Less than 1 km away</Text>
@@ -74,17 +78,31 @@ export default class FeedScreen extends Component {
 const styles = StyleSheet.create({
   image: {
     width: '100%',
-    height: 400,
+    height: 300,
   },
-  container: {
-
-    // justifyContent: 'space-around',
+  iconWraper: {
+    flex: 1,
+    justifyContent: 'space-around',
+    // flexDirection: 'row',
 
     alignItems: 'center',
-    paddingVertical: 10,
+    // paddingVertical: 10,
+  },
+
+  container: {
+    alignItems: 'center',
+    paddingBottom: 5,
+    // justifyContent: 'center',
+    overflow: 'visible',
+    // flex: 1,
+    // justifyContent: 'space-around',
+    flexDirection: 'row',
+
+    // alignItems: 'center',
+
   },
   devider: {
-    width: 80,
+    width: width / 8,
     borderTopWidth: 3,
     borderTopColor: Colors.grey,
     opacity: 0.6,

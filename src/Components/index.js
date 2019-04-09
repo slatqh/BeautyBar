@@ -2,7 +2,7 @@ import { CustomButton } from './Button';
 import { TextInput } from './Input';
 import TextCustom from './TextCustom';
 import { CardView } from './Card';
-import BeautyIcon from './Icons';
+import BeautyIcon from './BeautyIcons';
 import { BeautyTip } from './BeautyTip';
 import CardService from './CardService';
 import CardPrice from './CardPrice';

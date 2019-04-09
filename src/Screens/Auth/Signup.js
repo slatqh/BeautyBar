@@ -1,9 +1,13 @@
 
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, SafeAreaView } from 'react-native';
-import { CheckBox, Avatar, Icon } from 'react-native-elements';
+import { View, Image, StyleSheet, SafeAreaView, Dimensions } from 'react-native';
+import { CheckBox, Avatar } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { CustomButton, TextInput, TextCustom } from '../../Components';
 import Colors from '../../../constans/Colors';
+
+const { height } = Dimensions.get('window');
+const HEADER = height / 8;
 
 export default class CreateAccount extends Component {
   constructor(props) {
@@ -19,6 +23,20 @@ export default class CreateAccount extends Component {
       <View style={{ flex: 1 }}>
         <View style={{ flex: 0.5, justifyContent: 'space-evenly' }}>
           <SafeAreaView>
+            <Icon
+              onPress={() => this.props.navigation.goBack(null)}
+              style={{
+                position: 'absolute',
+                top: HEADER / 2.5,
+                left: 10,
+                marginBottom: 10,
+
+              }}
+              name='ios-arrow-round-back'
+              type='ionicons'
+              color={Colors.purple}
+              size={35}
+            />
             <Image
               style={styles.logo}
               source={require('../../../assets/images/AuthLogo.png')}
@@ -79,7 +97,7 @@ export default class CreateAccount extends Component {
               onPress={() => this.setState({ female: !this.state.female })}
             />
           </View>
-          <View style={{ marginTop: 30 }} />
+          <View style={{ flex: 0.5, justifyContent: 'center' }} />
           <CustomButton
             title='CREATE ACCOUNT'
             gradient
