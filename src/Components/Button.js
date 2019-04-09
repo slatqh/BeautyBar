@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Colors from '../../constans/Colors';
 
-export const CustomButton = ({ onPress, title, color, type, gradient, titleColor, icon, nospace, border, iconRight }) => (
+export const CustomButton = ({ titleSize, onPress, title, color, type, gradient, titleColor, icon, nospace, border, iconRight }) => (
 
   gradient ?
     <Button
@@ -16,7 +16,7 @@ export const CustomButton = ({ onPress, title, color, type, gradient, titleColor
         end: { x: 1, y: 0.5 },
       }}
       onPress={onPress}
-      buttonStyle={[styles.button]}
+      buttonStyle={[styles.button, titleSize ? { fontSize: titleSize } : null]}
       containerStyle={styles.container}
       type={type}
       title={title}

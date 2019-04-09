@@ -20,7 +20,9 @@ import { BookingCard } from './BookingCard';
 import { BookingList } from './BookingsList';
 import { TabIcon } from './TabIcon';
 import { ProfileInput } from './ProfileInput';
-import { SettingsButton } from './SettingsButton';
+import { SelectButton } from './SelectButton';
+import SearchBarMenu from './SearchBar';
+import { CustomSmallButton } from './CustomSmallButton';
 
 export {
   CustomButton,
@@ -45,5 +47,7 @@ export {
   BookingList,
   TabIcon,
   ProfileInput,
-  SettingsButton,
+  SelectButton,
+  SearchBarMenu,
+  CustomSmallButton,
 };

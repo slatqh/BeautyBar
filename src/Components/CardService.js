@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ImageBackground, Dimensions, StyleSheet } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import styled from 'styled-components';
-import { CustomButton } from './Button';
+import { CustomSmallButton } from './CustomSmallButton';
 
 const Wrapper = styled.TouchableOpacity`
 border-width: 1;
@@ -73,8 +73,8 @@ class CardService extends Component {
               <Text style={styles.desc}>Dubai - United Arab Emirates</Text>
               <Text style={styles.descTime}>Open from 9:00-21:00  $$$</Text>
             </View>
-            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-              <CustomButton title='SERVICES' nospace gradient />
+            <View style={{ flex: 1, marginRight: 10, alignSelf: 'center' }}>
+              <CustomSmallButton title='SERVICES' />
             </View>
           </View>
         </ImageBackground>

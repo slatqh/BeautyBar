@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import Colors from '../../constans/Colors';
 
-export const SettingsButton = ({ title, icon, disabled }) => {
+export const SelectButton = ({ title, icon, disabled }) => {
   const [selected, setSelected] = useState(false);
   return (
     <TouchableOpacity

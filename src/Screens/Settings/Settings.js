@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
-import { TextCustom, SettingsButton, CustomButton } from '../../Components';
+import { TextCustom, SelectButton, CustomButton } from '../../Components';
 import Colors from '../../../constans/Colors';
 
 export default class Settings extends Component {
@@ -27,33 +27,33 @@ export default class Settings extends Component {
         </View>
         <View style={{ flex: 2 }}>
           <View style={styles.wrapper}>
-            <SettingsButton
+            <SelectButton
               title='push notification'
               icon
             />
-            <SettingsButton
+            <SelectButton
               title='email notification'
               icon
             />
           </View>
           <View style={styles.wrapper}>
-            <SettingsButton
+            <SelectButton
               title='invaite friends'
             />
-            <SettingsButton
+            <SelectButton
               title='rate beauty bar'
             />
           </View>
           <View style={styles.wrapper}>
-            <SettingsButton
+            <SelectButton
               title='privacy policy'
             />
-            <SettingsButton
+            <SelectButton
               title='terms & conditions'
             />
           </View>
           <View style={styles.wrapper}>
-            <SettingsButton
+            <SelectButton
               title='contact us'
               disabled
             />
