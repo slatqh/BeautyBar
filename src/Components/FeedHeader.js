@@ -85,7 +85,8 @@ export default class FeedHeader extends Component {
               <Text style={styles.reviews}>REVIEWS</Text>
             </TouchableOpacity>
           </View>
-        </View>}
+        </View>
+        }
       </View>
     );
   }

@@ -30,7 +30,6 @@ export default class FeedScreen extends Component {
     this.setState({ search });
   }
   render() {
-    console.log(this.state.search);
     return (
       <View style={{ flex: 1 }}>
         <ScrollView

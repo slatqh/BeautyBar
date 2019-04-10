@@ -16,6 +16,7 @@ import {
   Profile,
   Settings,
   ConfirmFinal,
+  PastBookings,
 } from '../Screens';
 import Colors from '../../constans/Colors';
 
@@ -50,6 +51,7 @@ const FeedStack = createStackNavigator({
 
 const BookingStack = createStackNavigator({
   BookingTab,
+  PastBookings,
 }, {
   defaultNavigationOptions: {
     headerStyle: {
@@ -97,11 +99,10 @@ export const App = createBottomTabNavigator({
   Profile: ProfileStack,
   Settings: SettingsStack,
 }, {
-  initialRouteName: 'Feed',
+  initialRouteName: 'Booking',
   tabBarOptions: {
     activeTintColor: Colors.purple,
     labelStyle: () => styles.labelStyle,
-    // tabStyle: { overflow: 'visible' },
     style: () => styles.container,
   },
 });

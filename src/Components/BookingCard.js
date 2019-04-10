@@ -1,33 +1,18 @@
 import React from 'react';
-import { AirbnbRating } from 'react-native-ratings';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import TextCustom from './TextCustom';
 import Colors from '../../constans/Colors';
 
 export const BookingCard = () => (
 
-  <View style={{
-    height: 150,
-    flexDirection: 'row',
-    borderWidth: 1,
-    borderColor: Colors.lightgrey,
-
-  }}
-  >
-    <View style={{
-      flex: 0.4,
-      alignItems: 'center',
-      justifyContent: 'center',
-      borderRightWidth: 1,
-      borderRightColor: Colors.lightgrey }}
-    >
-      <Text style={{ fontSize: 20, color: Colors.purple, alignSelf: 'center' }}> 11</Text>
-      <Text style={{ fontSize: 14, color: Colors.purple }}> Friday</Text>
-      <Text style={{ paddingTop: 35, fontSize: 16, letterSpacing: 2, color: Colors.purple }}> 11:00</Text>
+  <View style={styles.container}>
+    <View style={styles.innerDate}>
+      <TextCustom title='11' size={20} purple />
+      <TextCustom title='Thurs' size={14} purple />
     </View>
-    <View style={{ flexDirection: 'column', flex: 1, paddingHorizontal: 8 }}>
-      <Text style={{ fontSize: 18, paddingVertical: 5, letterSpacing: 1 }}>JUICE SPA SALON</Text>
-      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={styles.innerMain}>
+      <Text style={styles.businessName}>JUICE SPA SALON</Text>
+      {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <AirbnbRating
           type='custom'
           raitingColor="#ffc57c"
@@ -39,17 +24,53 @@ export const BookingCard = () => (
           style={{ margin: 0, flexDirection: 'row' }}
           onFinishRating={this.ratingCompleted}
         />
-        <Text style={{ fontSize: 10, paddingLeft: 5 }}>43 reviews</Text>
-      </View>
-      <TextCustom title='Shop No 8, Nashwan Building, Mankhool Road, Bur Dubai, Dubai, EAU' size={8} color='black' styles={{ alignSelf: 'flex-start', width: 210, paddingVertical: 5 }} />
-      <Text style={{ letterSpacing: 0.5 }}>Upscale hair salon in Bur Dubai</Text>
-      <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-        <Text style={{ fontSize: 18, color: Colors.purple, alignSelf: 'center' }}>Blow Dry</Text>
-        <View style={{ backgroundColor: Colors.purple, padding: 9, alignSelf: 'center', borderRadius: 3 }}>
-          <Text style={{ color: 'white' }}>$85</Text>
-        </View>
-
+      </View> */}
+      <TextCustom
+        title='Shop No 8, Nashwan Building, Mankhool Road, Bur Dubai, Dubai, EAU'
+        size={8}
+        color='black'
+        styles={styles.address}
+      />
+      <View style={{ marginVertical: 10 }}>
+        <Text style={styles.service}>Blow Dry</Text>
+        <Text style={{ color: 'black' }}>At 11:00</Text>
       </View>
     </View>
   </View>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: Colors.lightgrey,
+  },
+  innerDate: {
+    flex: 0.3,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRightWidth: 1,
+    borderRightColor: Colors.lightgrey,
+  },
+  businessName: {
+    fontSize: 12,
+    paddingVertical: 5,
+    letterSpacing: 1,
+  },
+  innerMain: {
+    flexDirection: 'column',
+    flex: 1,
+    paddingHorizontal: 8,
+  },
+  address: {
+    alignSelf: 'flex-start',
+    width: 210,
+    paddingVertical: 5,
+  },
+  service: {
+    fontSize: 14,
+    color: Colors.purple,
+    alignSelf: 'flex-start',
+  },
+})
+;

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import Swipeout from 'react-native-swipeout';
-import { BookingCard } from '../../Components';
+import { BookingCard, TextCustom } from '../../Components';
 import Colors from '../../../constans/Colors';
 
-class BookingTab extends React.Component {
+class PastBookings extends React.Component {
   render() {
     const swipeoutBtns = [
       {
@@ -13,6 +14,10 @@ class BookingTab extends React.Component {
         underlayColor: '#f01f9d',
         width: 30,
         height: 60,
+        component: <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+          <Icon name='trash' size={25} type='FontAwesome5' color='white' />
+          <TextCustom title='CANCEL' size={10} styles={{ color: 'white', marginTop: 5 }} />
+        </View>,
 
       },
     ];
@@ -30,7 +35,7 @@ class BookingTab extends React.Component {
           <View style={styles.buttonBorder}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => this.props.navigation.navigate('PastBookings')}
+              onPress={() => this.props.navigation.navigate('Booking')}
             >
               <Text style={styles.reviews}>PAST BOOKINGS</Text>
             </TouchableOpacity>
@@ -104,4 +109,4 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
 });
-export default BookingTab;
+export default PastBookings;
