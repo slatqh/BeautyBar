@@ -15,6 +15,7 @@ import {
   BookingTab,
   Profile,
   Settings,
+  ConfirmFinal,
 } from '../Screens';
 import Colors from '../../constans/Colors';
 
@@ -36,8 +37,9 @@ const FeedStack = createStackNavigator({
   Reviews,
   BookingScreen,
   BookingDetails,
+  ConfirmFinal,
 }, {
-  initialRouteName: 'FeedMain',
+  initialRouteName: 'ConfirmFinal',
   defaultNavigationOptions: {
     header: null,
   },

@@ -4,6 +4,7 @@ import About from './About';
 import Reviews from './Reviews';
 import BookingScreen from './Booking';
 import BookingDetails from './BookingDetails';
+import ConfirmFinal from './ConfirmFinal';
 
 export {
   FeedScreen,
@@ -12,4 +13,5 @@ export {
   Reviews,
   BookingScreen,
   BookingDetails,
+  ConfirmFinal,
 };

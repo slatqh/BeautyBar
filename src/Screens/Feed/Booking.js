@@ -59,9 +59,9 @@ export default class BookingScreen extends Component {
         </View>
         <View style={styles.divider} />
         <View style={styles.wraper}>
-          <ServiceTitle title='Select Hairdresser' />
-          <ServicePicker selected={(select) => this.setState({ modalVisible: select })} />
-          <Modal
+          {/* <ServiceTitle title='Select Hairdresser' />
+          <ServicePicker selected={(select) => this.setState({ modalVisible: select })} /> */}
+          {/* <Modal
             backdropOpacity={0.9}
             isVisible={this.state.modalVisible}
             onBackdropPress={() => this.setState({ modalVisible: false })}
@@ -77,7 +77,7 @@ export default class BookingScreen extends Component {
               </View>
 
             </ScrollView>
-          </Modal>
+          </Modal> */}
           <ServiceTitle title='Data & Time' />
           <DateTime title='Select date' onPress={this._showDateTimePicker} />
           <DateTime title='Select time' time onPress={this._showTimePicker} />
@@ -86,8 +86,8 @@ export default class BookingScreen extends Component {
               isVisible={this.state.isDateTimePickerVisible}
               onConfirm={this._handleDatePicked}
               onCancel={this._hideDateTimePicker}
-              customConfirmButtonIOS={<PickerButton title='CONFIRM' gradient onPress={this._handleDatePicked} />}
-              customCancelButtonIOS={<PickerButton title='CANCEL' titleColor='black' />}
+              // customConfirmButtonIOS={<PickerButton title='CONFIRM' gradient onPress={this._handleDatePicked} />}
+              // customCancelButtonIOS={<PickerButton title='CANCEL' titleColor='black' />}
             />
           </View>
           <View>
@@ -101,7 +101,7 @@ export default class BookingScreen extends Component {
           <ServiceTitle title='Any special requirements ?' />
           <View style={styles.textInput}>
             <TextInput
-              placeholder='Type something...'
+              placeholder={`${' '} Type something...`}
               multiline
               onTextChange={(e) => this.setState({ notes: e })}
             />
@@ -111,7 +111,7 @@ export default class BookingScreen extends Component {
           <View style={{ paddingVertical: 15 }}>
             <CustomButton
               gradient
-              title='ADD TO BEAUTY CART - $85'
+              title='GO TO CHECKOUT'
               onPress={() => this.props.navigation.navigate('BookingDetails')}
             />
 

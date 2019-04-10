@@ -13,6 +13,7 @@ export default class CardPrice extends Component {
       <TouchableOpacity
         style={styles.container}
         onPress={this.props.onPress}
+        disabled={this.props.disabled}
       >
         <View style={styles.inner}>
           <TextCustom size={14} title="Women's Designer" color='#273d52' />

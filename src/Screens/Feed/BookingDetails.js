@@ -38,12 +38,12 @@ export default class BookingDetails extends Component {
         </View>
         <View style={styles.mainView}>
           <ServiceTitle title='Booking' />
-          <ServiceTitle title='Service' size={12} styles={{ marginTop: 0 }} />
-          <CardPrice />
+          <ServiceTitle title='Service' size={12} styles={{ color: Colors.purple }} />
+          <CardPrice disabled />
         </View>
         <View style={styles.view}>
-          <ServiceTitle title='Attendant' />
-          <EmployeeSelect noIcon title='Hello' />
+          {/* <ServiceTitle title='Attendant' />
+          <EmployeeSelect noIcon title='Hello' /> */}
           <ServiceTitle title='Date' />
           <ServiceTitle title='Thuesday February 1, 2019' color={Colors.purple} />
           <ServiceTitle title='Time' />
@@ -72,7 +72,7 @@ export default class BookingDetails extends Component {
                   borderBottomWidth: 1,
                 }}
               >
-                <TextCustom title='ADD MORE SERVICES' color={Colors.purple} size={14} />
+                <TextCustom title='CANCEL' color={Colors.purple} size={14} />
               </TouchableOpacity>
 
             </View>

@@ -23,6 +23,7 @@ import { ProfileInput } from './ProfileInput';
 import { SelectButton } from './SelectButton';
 import SearchBarMenu from './SearchBar';
 import { CustomSmallButton } from './CustomSmallButton';
+import { ConfirmIcon } from './ConfirmIcon';
 
 export {
   CustomButton,
@@ -50,4 +51,5 @@ export {
   SelectButton,
   SearchBarMenu,
   CustomSmallButton,
+  ConfirmIcon,
 };

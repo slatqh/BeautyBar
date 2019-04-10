@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import { CardPrice, TextCustom, FeedHeader } from '../../Components';
+import { CardPrice, TextCustom, FeedHeader, ServiceTitle } from '../../Components';
+import Colors from '../../../constans/Colors';
 
 class FeedDetails extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class FeedDetails extends Component {
           </View>
           <View style={{ paddingHorizontal: 15 }}>
             <TextCustom title='Services' size={14} styles={{ paddingVertical: 10 }} color='black' />
-            <CardPrice onPress={() => this.props.navigation.navigate('Booking')} />
+            <ServiceTitle title='Hair' size={12} styles={{ color: Colors.purple }} />
+            <CardPrice onPress={() => this.props.navigation.navigate('BookingScreen')} />
             <CardPrice />
             <CardPrice />
             <CardPrice />
