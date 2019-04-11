@@ -17,9 +17,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'montserrat-medium',
     letterSpacing: 1,
     marginLeft: 15,
+    color: Colors.black,
   },
 });

@@ -37,7 +37,7 @@ export default class Reviews extends Component {
             containerStyle={{ flex: 1, margin: 0, flexDirection: 'row' }}
             onFinishRating={this.ratingCompleted}
           />
-          <TextCustom title='43 reviews' color={Colors.purple} size={16} styles={{ marginTop: 15 }} />
+          <TextCustom title='43 reviews' purple size={14} styles={{ marginTop: 15 }} />
           <View style={styles.raiting}>
             <View style={{ marginVertical: 20 }}>
               <Text

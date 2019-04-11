@@ -4,12 +4,11 @@ import Modal from 'react-native-modal';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
   FeedHeader,
-  ServicePicker,
+  // ServicePicker,
   ServiceTitle,
-  EmployeeSelect,
+  // EmployeeSelect,
   CardPrice,
   DateTime,
-  PickerButton,
   CustomButton,
 } from '../../Components';
 import Colors from '../../../constans/Colors';
@@ -59,25 +58,6 @@ export default class BookingScreen extends Component {
         </View>
         <View style={styles.divider} />
         <View style={styles.wraper}>
-          {/* <ServiceTitle title='Select Hairdresser' />
-          <ServicePicker selected={(select) => this.setState({ modalVisible: select })} /> */}
-          {/* <Modal
-            backdropOpacity={0.9}
-            isVisible={this.state.modalVisible}
-            onBackdropPress={() => this.setState({ modalVisible: false })}
-            style={styles.modal}
-          >
-            <ScrollView
-              contentContainerStyle={{ flex: 1, backgroundColor: 'white', justifyContent: 'flex-start', marginTop: 80 }}
-            >
-              <View style={{ }}>
-                <EmployeeSelect />
-                <EmployeeSelect />
-                <EmployeeSelect />
-              </View>
-
-            </ScrollView>
-          </Modal> */}
           <ServiceTitle title='Data & Time' />
           <DateTime title='Select date' onPress={this._showDateTimePicker} />
           <DateTime title='Select time' time onPress={this._showTimePicker} />
@@ -86,8 +66,6 @@ export default class BookingScreen extends Component {
               isVisible={this.state.isDateTimePickerVisible}
               onConfirm={this._handleDatePicked}
               onCancel={this._hideDateTimePicker}
-              // customConfirmButtonIOS={<PickerButton title='CONFIRM' gradient onPress={this._handleDatePicked} />}
-              // customCancelButtonIOS={<PickerButton title='CANCEL' titleColor='black' />}
             />
           </View>
           <View>
@@ -140,8 +118,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   textInput: {
-    borderColor: Colors.lightgrey,
-    borderWidth: 1,
+    borderColor: Colors.lightblack,
+    borderWidth: 0.8,
     height: 100,
   },
 });

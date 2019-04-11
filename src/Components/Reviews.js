@@ -19,8 +19,8 @@ export default class Review extends Component {
           <View style={styles.avatar}>
             <Avatar
               size='medium'
-              title='Alex'
-              placeholder='Alex'
+              // title='Alex'
+              // placeholder='Alex'
               rounded
               source={{
                 uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
@@ -38,7 +38,7 @@ export default class Review extends Component {
                 style={{ paddingVertical: 5 }}
                 onFinishRating={this.ratingCompleted}
               />
-              <TextCustom title='Regina' size={12} color='black' />
+              <TextCustom title='Regina' size={12} black />
             </View>
           </View>
           <View style={{ }}>
@@ -52,7 +52,7 @@ export default class Review extends Component {
           Dolor mollit et adipisicing eu ut.
         </Text>
         <View style={styles.services}>
-          <TextCustom title='Services:' color='black' size={13} styles={styles.text} />
+          <TextCustom title='Services:' black size={13} styles={styles.text} />
           <ServiceName title='Blow Dry' />
           <ServiceName title='Hair Extensions' />
 
@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
   },
   Date: {
     color: Colors.purple,
+    letterSpacing: 1,
+    fontSize: 12,
   },
   services: {
     flex: 1,

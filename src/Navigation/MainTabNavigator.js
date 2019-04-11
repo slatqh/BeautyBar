@@ -40,7 +40,7 @@ const FeedStack = createStackNavigator({
   BookingDetails,
   ConfirmFinal,
 }, {
-  initialRouteName: 'About',
+  initialRouteName: 'ConfirmFinal',
   defaultNavigationOptions: {
     header: null,
   },

@@ -7,7 +7,7 @@ export const ServiceTitle = ({ size, fontFamily, title, color, styles }) => (
     style={[{
       letterSpacing: 1,
       marginVertical: 10,
-      fontSize: size || 14,
+      fontSize: size || 12,
       fontFamily: fontFamily || 'montserrat',
       color: color || Colors.black,
     }, styles]}
