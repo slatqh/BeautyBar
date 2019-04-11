@@ -7,4 +7,5 @@ export default {
   darkBlue: '#273d52',
   divider: '#c8c8c8',
   black: '#000000',
+  lightblack: '#464646',
 };

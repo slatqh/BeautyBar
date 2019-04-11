@@ -61,7 +61,7 @@ export default class FeedScreen extends Component {
               </View>
             </ScrollView>
             <View style={styles.view}>
-              <Text style={{ margin: 10 }}>Less than 1 km away</Text>
+              <TextCustom styles={{ margin: 10 }} title='Less than 1 km away' black />
             </View>
             <ScrollView
               showsHorizontalScrollIndicator={false}
@@ -69,18 +69,39 @@ export default class FeedScreen extends Component {
               contentContainerStyle={{ paddingHorizontal: 10 }}
               bounces='none'
             >
-              <CardView onPress={() => this.props.navigation.navigate('FeedDetails')} />
-              <CardView />
-              <CardView />
-              <CardView />
-              <CardView />
+              <View style={{ flexDirection: 'row', overflow: 'visible', paddingBottom: 15 }}>
+                <CardView onPress={() => this.props.navigation.navigate('FeedDetails')} />
+                <CardView />
+                <CardView />
+                <CardView />
+                <CardView />
+
+              </View>
+
+            </ScrollView>
+          </View>
+          <View style={{ marginLeft: 10 }}>
+            <TextCustom title='Beauty Tip of the day' black styles={styles.tip} />
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              bounces='none'
+            >
+              <View style={{ flexDirection: 'row', paddingBottom: 15, overflow: 'visible' }}>
+                <BeautyTip />
+                <BeautyTip />
+                <BeautyTip />
+                <BeautyTip />
+                <BeautyTip />
+
+              </View>
 
             </ScrollView>
           </View>
           <View style={{ flex: 1, marginHorizontal: 10 }}>
-            <Text style={styles.tip}>Beauty Tip of the day</Text>
-            <BeautyTip />
-            <Text style={styles.tip}> Venues</Text>
+            <View style={{ marginTop: 5, marginBottom: 10 }}>
+              <TextCustom title='Venues' black />
+            </View>
 
             <CardService />
             <CardService />
@@ -152,8 +173,8 @@ const styles = StyleSheet.create({
   },
   view: {
     width: '100%',
-    borderTopColor: 'black',
-    borderTopWidth: 1,
+    borderTopColor: '#808080',
+    borderTopWidth: 0.8,
   },
   tip: {
     marginVertical: 10,

@@ -1,39 +1,32 @@
 import React from 'react';
 import { View, Text, ImageBackground, Dimensions, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
-import styled from 'styled-components';
-import Colors from '../../constans/Colors'
-;
+import Colors from '../../constans/Colors';
 
-const Wrapper = styled.TouchableOpacity`
-
-
-shadow-offset: {width: 0, height: 5};
-
-margin-left: 5;
-`;
 const { width, height } = Dimensions.get('window');
 const IMAGE_HEIGHT = height / 4;
 const IMAGE_WIDTH = width / 1.7;
 
-const CARD_WIDTH = width / 1.7;
+// const CARD_WIDTH = width / 1.7;
 const CARD_HEIGHT = IMAGE_HEIGHT / 2.5;
 
 export const CardView = ({ onPress }) => (
   <View style={{
     marginRight: 10,
-    // shadowOffset: { width: -5, height: 15 },
-    // shadowColor: '#ddd',
-    // shadowOpacity: 1,
-    // shadowRadius: 0.2,
-    borderRadius: 10,
-    overflow: 'hidden',
+    borderRadius: 5,
+    overflow: 'visible',
   }}
   >
 
     <TouchableOpacity
       onPress={onPress}
       style={{
+
+        borderRadius: 10,
+        shadowOffset: { width: -1, height: 8 },
+        shadowColor: '00000',
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
       }}
     >
       <ImageBackground
@@ -63,13 +56,8 @@ export const CardView = ({ onPress }) => (
             borderLeftColor: Colors.lightgrey,
             borderRightWidth: 1,
             borderRightColor: Colors.lightgrey,
-            // overflow: 'hidden',
             borderBottomLeftRadius: 10,
             borderBottomRightRadius: 10,
-            shadowOffset: { width: 1, height: 7 },
-            shadowColor: '#ddd',
-            shadowOpacity: 0.9,
-            shadowRadius: 5,
           },
         ]}
         >
@@ -91,11 +79,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     flex: 1,
     borderRadius: 10,
-    overflow: 'visible',
-    // borderColor: '#ddd',
+    overflow: 'hidden',
+    backgroundColor: 'white',
 
-    // elevation: 1,
-    // borderWidth: 1,
   },
   textContainer: {
     flex: 1,
@@ -132,5 +118,6 @@ const styles = StyleSheet.create({
     flex: 0.5,
     alignItems: 'flex-start',
     justifyContent: 'space-around',
+
   },
 });

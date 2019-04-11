@@ -28,7 +28,7 @@ export default class SearchBarMenu extends Component {
       >
         <SearchBar
           round
-          placeholder='Search for venues'
+          placeholder='SEARCH FOR VENUES'
           inputStyle={{ fontSize: 14, padding: 0, margin: 0 }}
           inputContainerStyle={{
             alignItems: 'center',

@@ -40,7 +40,7 @@ const FeedStack = createStackNavigator({
   BookingDetails,
   ConfirmFinal,
 }, {
-  initialRouteName: 'ConfirmFinal',
+  initialRouteName: 'About',
   defaultNavigationOptions: {
     header: null,
   },
@@ -54,6 +54,7 @@ const BookingStack = createStackNavigator({
   PastBookings,
 }, {
   defaultNavigationOptions: {
+    headerLeft: null,
     headerStyle: {
       backgroundColor: 'white',
     },
@@ -99,7 +100,7 @@ export const App = createBottomTabNavigator({
   Profile: ProfileStack,
   Settings: SettingsStack,
 }, {
-  initialRouteName: 'Booking',
+  initialRouteName: 'Feed',
   tabBarOptions: {
     activeTintColor: Colors.purple,
     labelStyle: () => styles.labelStyle,

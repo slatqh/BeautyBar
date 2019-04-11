@@ -1,21 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, ImageBackground, Dimensions, StyleSheet } from 'react-native';
+import { View, Text, ImageBackground, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
-import styled from 'styled-components';
 import { CustomSmallButton } from './CustomSmallButton';
 
-const Wrapper = styled.TouchableOpacity`
-border-width: 1;
-border-radius: 10;
-border-color: #ddd;
-border-bottom-width: 1;
-shadow-color: #f000;
-shadow-opacity: 0.8;
-shadow-radius: 1;
-elevation: 1;
-flex: 1;
-margin-vertical: 10;
-`;
 const { width, height } = Dimensions.get('window');
 const IMAGE_HEIGHT = 200;
 const IMAGE_WIDTH = width - 20;
@@ -32,8 +19,15 @@ class CardService extends Component {
 
   render() {
     return (
-      <Wrapper
+      <TouchableOpacity
         onPress={this.props.onPress}
+        style={{
+          shadowOffset: { width: -1, height: 8 },
+          shadowColor: '00000',
+          shadowOpacity: 0.2,
+          shadowRadius: 5,
+          marginBottom: 15,
+        }}
       >
         <ImageBackground
           style={{
@@ -43,12 +37,12 @@ class CardService extends Component {
 
             borderRadius: 10,
             overflow: 'hidden',
-            borderColor: '#ddd',
-            shadowColor: '#f000',
-            shadowOpacity: 0.3,
-            shadowRadius: 1,
-            elevation: 1,
-            borderWidth: 1,
+            // borderColor: '#ddd',
+            // shadowColor: '#f000',
+            // shadowOpacity: 0.3,
+            // shadowRadius: 1,
+            // elevation: 1,
+            // borderWidth: 1,
           }}
           source={require('../../assets/images/fashion.jpeg')}
           resizeMethod='scale'
@@ -79,7 +73,7 @@ class CardService extends Component {
           </View>
         </ImageBackground>
 
-      </Wrapper>
+      </TouchableOpacity>
     );
   }
 }

@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     fontFamily: 'montserrat-medium',
     fontSize: 12,
     paddingTop: 5,
+    letterSpacing: 1,
   },
   imageMain: {
   },

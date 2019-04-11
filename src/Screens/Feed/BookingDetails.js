@@ -54,7 +54,11 @@ export default class BookingDetails extends Component {
           <ServiceTitle title='Payment' />
           <ServiceTitle title='Payment required at the venue' color={Colors.purple} />
           <View style={{ paddingVertical: 15 }}>
-            <CustomButton gradient title='CONFIRM BOOKING' />
+            <CustomButton
+              gradient
+              title='CONFIRM BOOKING'
+              onPress={() => this.props.navigation.navigate('ConfirmFinal')}
+            />
             <View style={styles.containerOr}>
               <View style={styles.line} />
               <Text style={styles.or}> OR</Text>
@@ -71,6 +75,7 @@ export default class BookingDetails extends Component {
                   borderColor: Colors.purple,
                   borderBottomWidth: 1,
                 }}
+                onPress={() => this.props.navigation.navigate('FeedMain')}
               >
                 <TextCustom title='CANCEL' color={Colors.purple} size={14} />
               </TouchableOpacity>

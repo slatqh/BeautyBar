@@ -14,12 +14,12 @@ export default class ConfirmFinal extends Component {
     return (
       <View style={{ flex: 1 }}>
         <View style={styles.header}>
-          <TextCustom title='CONFIRMED' size={16} styles={{ color: Colors.purple }} />
+          <TextCustom title='CONFIRMED' size={16} purple />
           <View style={{ marginVertical: 15 }}>
             <ConfirmIcon />
 
           </View>
-          <TextCustom size={12} styles={{ color: Colors.darkBlue }} title='Confirmation #123-345-45690' />
+          <TextCustom size={12} purple title='Confirmation #123-345-45690' />
         </View>
         <View style={{ flex: 0.5, marginLeft: 15 }}>
           <ServiceTitle title='Booking' />
@@ -60,7 +60,11 @@ export default class ConfirmFinal extends Component {
               style={styles.calendarImage}
             />
           </View>
-          <CustomButton title='DONE' gradient />
+          <CustomButton
+            title='DONE'
+            gradient
+            onPress={() => this.props.navigation.navigate('FeedMain')}
+          />
         </View>
       </View>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Dimensions, SafeAreaView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, Image, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { TextCustom, Divider, Title } from '../../Components';
 import Colors from '../../../constans/Colors';

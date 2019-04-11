@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ImageBackground, Dimensions, TouchableOpacity, StyleSheet } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import LinearGradient from 'react-native-linear-gradient';
-import { Icon } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 import TextCustom from './TextCustom';
 import Colors from '../../constans/Colors';
 
@@ -19,26 +19,27 @@ export default class FeedHeader extends Component {
   render() {
     return (
       <View style={{ flex: 1, width: '100%', height: HEADER }}>
+        <LinearGradient
+          colors={['black', 'transparent']}
+          start={{ x: 10, y: 1 }}
+          end={{ x: 0, y: 1 }}
+          style={{ opacity: 0.8 }}
+        />
         <ImageBackground
-          source={require('../../assets/images/fashion.jpeg')}
+          source={require('../../assets/images/feeddetails.png')}
           style={{ width: '100%', flex: 1 }}
           blurRadius={1}
         >
-          <LinearGradient
-            colors={['black', 'transparent']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={{ flex: 1, opacity: 0.5 }}
-          />
           <View style={styles.iconContainer}>
-            <Icon
-              onPress={() => this.props.navigation.goBack(null)}
-              containerStyle={{ flex: 1, margin: 20, alignSelf: 'flex-start' }}
-              name='arrowleft'
-              type='antdesign'
-              color='white'
-              size={30}
-            />
+            <View style={styles.icon}>
+              <Icon
+                onPress={() => this.props.navigation.goBack(null)}
+                name='ios-arrow-round-back'
+                color='white'
+                size={40}
+              />
+
+            </View>
 
           </View>
           <View style={styles.Title}>
@@ -60,10 +61,9 @@ export default class FeedHeader extends Component {
             />
             <View style={styles.address}>
               <TextCustom
-                color='white'
+                styles={{ color: Colors.grey }}
                 size={10}
                 title='Shop No 8, Nashwan Building, Mankholl Road, Bur Dubai, Dubai UEA'
-
               />
             </View>
           </View>
@@ -96,13 +96,19 @@ const styles = StyleSheet.create({
   reviews: {
     alignSelf: 'center',
     padding: 10,
-    color: Colors.grey,
+    color: Colors.lightblack,
     fontFamily: 'montserrat',
     letterSpacing: 1,
     fontSize: 14,
   },
   iconContainer: {
     flex: 1,
+    justifyContent: 'flex-end',
+  },
+  icon: {
+    flex: 1,
+    marginLeft: 20,
+    alignSelf: 'flex-start',
     justifyContent: 'flex-end',
   },
   Title: {
@@ -119,8 +125,8 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderColor: 'black',
+    borderBottomWidth: 0.7,
+    borderColor: Colors.grey,
   },
   button: {
     justifyContent: 'center',
@@ -128,8 +134,8 @@ const styles = StyleSheet.create({
   },
   buttonBorder: {
     flex: 1,
-    borderLeftWidth: 1,
-    borderColor: 'black',
+    borderLeftWidth: 0.7,
+    borderColor: Colors.grey,
   },
   address: {
     width: width / 1.6, alignItems: 'center', paddingBottom: 10,
