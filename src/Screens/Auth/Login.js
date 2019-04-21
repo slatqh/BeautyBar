@@ -1,18 +1,41 @@
 
 import React, { Component } from 'react';
 import { View, Image, SafeAreaView, StyleSheet, TouchableOpacity, Text } from 'react-native';
-import { CustomButton, TextInput, TextCustom } from '../../Components';
+import { connect } from 'react-redux';
+import { login } from './action';
+import { CustomButton, TextInput, TextCustom, LoadingStatus } from '../../Components';
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      email: null,
+      password: null,
+      emailError: false,
+      passwordError: false,
     };
+  }
+  async signIn() {
+    const { email, password } = this.state;
+    if (email === null) {
+      this.setState({ emailError: true });
+      return;
+    } else if (password === null || email.length < 7) {
+      this.setState({ passwordError: true });
+    }
+    await this.props.login({ email, password });
+    if (this.props.isLoggin) {
+      this.props.navigation.navigate('App');
+    }
   }
 
   render() {
     return (
+
       <View style={{ flex: 1 }}>
+        {
+          this.props.loading ? <LoadingStatus loading={this.props.loading} /> : null
+        }
         <View style={{ flex: 1 }}>
           <SafeAreaView>
             <Image
@@ -25,10 +48,24 @@ export default class Login extends Component {
         </View>
         <View style={styles.text}>
 
-          <TextInput placeholder='EMAIL' />
-          <TextInput placeholder='PASSWORD' secureTextEntry />
+          <TextInput
+            placeholder='EMAIL'
+            label='email'
+            onChangeText={(e) => this.setState({ email: e, emailError: '' })}
+            error={!!this.state.emailError}
+          />
+          <TextInput
+            placeholder='PASSWORD'
+            secureTextEntry
+            onChangeText={(e) => this.setState({ password: e, passwordError: '' })}
+            password={!!this.state.passwordError}
+          />
           <View style={{ margin: 15 }}>
-            <CustomButton title='SIGN IN' gradient />
+            <CustomButton
+              title='SIGN IN'
+              gradient
+              onPress={() => this.signIn()}
+            />
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginHorizontal: 15 }}>
             <TouchableOpacity>
@@ -54,7 +91,6 @@ export default class Login extends Component {
     );
   }
 }
-
 const styles = StyleSheet.create({
   image: {
     justifyContent: 'center',
@@ -68,3 +104,11 @@ const styles = StyleSheet.create({
     alignContent: 'center',
   },
 });
+
+const mapStateToProps = ({ Auth }) => {
+  const { loading, isLoggin } = Auth;
+  return { loading, isLoggin };
+};
+
+export default connect(mapStateToProps, { login })(Login)
+;

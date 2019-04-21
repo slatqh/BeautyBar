@@ -24,6 +24,7 @@ import { SelectButton } from './SelectButton';
 import SearchBarMenu from './SearchBar';
 import { CustomSmallButton } from './CustomSmallButton';
 import { ConfirmIcon } from './ConfirmIcon';
+import { LoadingStatus } from './LoadingStatus';
 
 export {
   CustomButton,
@@ -52,4 +53,5 @@ export {
   SearchBarMenu,
   CustomSmallButton,
   ConfirmIcon,
+  LoadingStatus,
 };

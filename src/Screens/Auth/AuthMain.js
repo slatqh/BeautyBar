@@ -25,19 +25,19 @@ export default class AuthMain extends Component {
         </View>
         <View style={styles.container}>
           <CustomButton title='CREATE ACCOUNT' gradient onPress={() => this.props.navigation.navigate('Signup')} />
-          <View style={styles.wrapper}>
+          {/* <View style={styles.wrapper}>
             <View style={styles.wrapperOr} />
             <Text style={styles.or}> OR</Text>
             <View style={styles.wrapperOr} />
-          </View>
-          <CustomButton title='CONTINUE WITH FACEBOOK' color='#3b5998' icon='facebook' />
-          <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 20 }}>
+          </View> */}
+          {/* <CustomButton title='CONTINUE WITH FACEBOOK' color='#3b5998' icon='facebook' /> */}
+          {/* <View style={{ flexDirection: 'row', alignItems: 'center', paddingTop: 20 }}>
             <Image
               source={require('../../../assets/images/google.jpg')}
               style={styles.googleImage}
             />
             <CustomButton title='CONTINUE WITH GOOGLE' titleColor='#7f8184' />
-          </View>
+          </View> */}
         </View>
         <View style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
           <Text style={{ alignSelf: 'center', fontFamily: 'montserrat', color: '#7f8184', fontSize: 12 }}>

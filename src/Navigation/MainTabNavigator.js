@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import { TabIcon } from '../Components';
 import {
@@ -28,7 +27,7 @@ export const AuthStack = createStackNavigator({
   defaultNavigationOptions: {
     header: null,
   },
-  initialRouteName: 'Signup',
+  initialRouteName: 'Login',
 });
 
 const FeedStack = createStackNavigator({
@@ -40,7 +39,7 @@ const FeedStack = createStackNavigator({
   BookingDetails,
   ConfirmFinal,
 }, {
-  initialRouteName: 'ConfirmFinal',
+  initialRouteName: 'FeedMain',
   defaultNavigationOptions: {
     header: null,
   },
@@ -103,24 +102,7 @@ export const App = createBottomTabNavigator({
   initialRouteName: 'Feed',
   tabBarOptions: {
     activeTintColor: Colors.purple,
-    labelStyle: () => styles.labelStyle,
-    style: () => styles.container,
+    labelStyle: { justifyContent: 'center', marginTop: -5 },
   },
 });
 
-const styles = StyleSheet.create({
-  labelStyle: {
-    fontWeight: '500',
-    letterSpacing: 1,
-    fontFamily: 'montserrat',
-    textTransform: 'uppercase',
-  },
-  container: {
-    height: 55,
-    borderTopColor: Colors.grey,
-    borderTopWidth: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
-;

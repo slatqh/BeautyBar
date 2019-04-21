@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, TextInput } from 'react-native';
-import Modal from 'react-native-modal';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import {
   FeedHeader,
