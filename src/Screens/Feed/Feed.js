@@ -12,6 +12,7 @@ import {
   TextCustom,
 } from '../../Components';
 import Colors from '../../../constans/Colors';
+import MapView from 'react-native-maps';
 
 const { width } = Dimensions.get('window');
 
@@ -36,12 +37,16 @@ export default class FeedScreen extends Component {
           showsVerticalScrollIndicator={false}
           bounces={false}
         >
-          <View style={{ flex: 0.5 }}>
-            <Image
-              style={styles.image}
-              source={require('../../../assets/images/map.jpg')}
-            />
-          </View>
+          <MapView
+        style={{flex: 1, width: '100%', height: 300}}
+        region={{
+          latitude: 42.882004,
+          longitude: 74.582748,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421
+        }}
+        showsUserLocation={true}
+      />
           <View style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.devider} />
             <ScrollView
@@ -164,11 +169,12 @@ const styles = StyleSheet.create({
 
   },
   devider: {
-    width: width / 8,
-    borderTopWidth: 3,
-    borderTopColor: Colors.grey,
+    width: width / 6,
+    borderTopWidth: 5,
     opacity: 0.6,
-    margin: 10,
+    borderTopColor: Colors.grey,
+
+    marginVertical: 15,
     alignSelf: 'center',
   },
   view: {
