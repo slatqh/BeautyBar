@@ -3,11 +3,11 @@ import React, { Component } from 'react';
 import { View, Image, Text, StyleSheet, SafeAreaView, Dimensions, Alert } from 'react-native';
 import { CheckBox, Avatar } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import { CustomButton, TextInput, TextCustom } from '../../Components';
 import { signUp } from './action';
 import Colors from '../../../constans/Colors';
-import { User } from '../../../api/User';
 
 const { height } = Dimensions.get('window');
 const HEADER = height / 8;
@@ -20,29 +20,38 @@ class CreateAccount extends Component {
       female: null,
       gender: null,
       name: null,
+      lastName: null,
       email: null,
       password: null,
       confirmPassword: null,
       phone: null,
       error: null,
       nameError: false,
+      lastNameError: false,
       emailError: false,
       passwordError: false,
       passwordConfirmError: false,
       genderError: false,
+      avatarSource: ''
     };
   }
 
   checkInputs() {
-    const { name, email, password, confirmPassword, gender } = this.state;
+    const { name, lastName, email, password, confirmPassword, gender } = this.state;
     if (name === null || name.length < 1) {
       this.setState({ nameError: true });
+      return;
+    } else if (lastName === null || lastName.length < 1) {
+      this.setState({ lastNameError: true });
       return;
     } else if (email === null || email.length < 1) {
       this.setState({ emailError: true });
       return;
     } else if (password === null || password.length < 7) {
       this.setState({ passwordError: true });
+      return;
+    }else if (confirmPassword === null || confirmPassword.length < 1) {
+      this.setState({ passwordConfirmError: true });
       return;
     } else if (password !== confirmPassword) {
       Alert.alert(
@@ -71,6 +80,37 @@ class CreateAccount extends Component {
       phone,
     });
     this.props.navigation.navigate(this.props.isLoggin ? 'App' : 'Signup');
+  }
+  selectPhotoTapped() {
+    const options = {
+      quality: 1.0,
+      maxWidth: 500,
+      maxHeight: 500,
+      storageOptions: {
+        skipBackup: true,
+      },
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled photo picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        const source = { uri: response.uri };
+
+        // You can also display the image using data:
+        // let source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+        this.setState({
+          avatarSource: source,
+        });
+      }
+    });
   }
   render() {
     return (
@@ -103,26 +143,39 @@ class CreateAccount extends Component {
             avatarStyle={{ backgroundColor: 'skyblue' }}
             icon={{ name: 'user', type: 'font-awesome' }}
             showEditButton
+            defaultEditButton={{ backgroundColor: Colors.purple }}
             editButton={{
               name: 'add',
               type: 'fontawesome',
+              tintColor: Colors.purple,
               color: Colors.white,
+              backgroundColor: Colors.purple,
             }}
+
             size='large'
             iconStyle={{ color: Colors.purple }}
             rounded
-            source={require('../../../assets/images/avatar.jpeg')}
-            onEditPress={() => console.log('EDIT')}
+            // source={require('../../../assets/images/avatar.jpeg')}
+            onEditPress={() => this.selectPhotoTapped()}
           />
         </View>
         <View style={styles.wrap}>
-
-          <TextInput
-            placeholder='NAME'
-            label='name'
-            onChangeText={(e) => this.setState({ name: e, nameError: false })}
-            error={!!this.state.nameError}
-          />
+          <View style={{ flexDirection: 'row'}}>
+            <TextInput
+            containerStyle={{ flex: 1}}
+              placeholder='FIRST NAME'
+              label='first name'
+              onChangeText={(e) => this.setState({ name: e, nameError: false })}
+              error={!!this.state.nameError}
+            />
+            <TextInput
+              placeholder='LAST NAME'
+              containerStyle={{ flex: 1}}
+              label='last name'
+              onChangeText={(e) => this.setState({ lastName: e, lastNameError: false })}
+              error={!!this.state.lastNameError}
+            />
+          </View>
           <TextInput
             label='email'
             placeholder='EMAIL'
@@ -140,6 +193,7 @@ class CreateAccount extends Component {
             placeholder='CONFIRM PASSWORD'
             secureTextEntry
             onChangeText={(e) => this.setState({ confirmPassword: e, passwordConfirmError: false })}
+            password={!!this.state.passwordConfirmError}
           />
           <TextInput
             placeholder='PHONE'

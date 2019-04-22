@@ -4,9 +4,9 @@ import {
   StatusBar,
   View,
 } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { connect } from 'react-redux'
 
-export default class AuthLoadingScreen extends React.Component {
+class AuthLoadingScreen extends React.Component {
   constructor(props) {
     super(props);
     this._bootstrapAsync();
@@ -14,11 +14,10 @@ export default class AuthLoadingScreen extends React.Component {
 
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
-    const userToken = await AsyncStorage.getItem('userToken');
 
     // This will switch to the App screen or Auth screen and this loading
     // screen will be unmounted and thrown away.
-    this.props.navigation.navigate(userToken ? 'App' : 'Auth');
+    this.props.navigation.navigate(this.props.isLoggin ? 'App' : 'Auth');
   };
 
   // Render any loading content that you like here
@@ -31,3 +30,10 @@ export default class AuthLoadingScreen extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ Auth }) => {
+  const { isLoggin } = Auth;
+  return { isLoggin }
+}
+
+export default connect(mapStateToProps, { })(AuthLoadingScreen)

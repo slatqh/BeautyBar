@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, ScrollView } from 'react-native';
 import { Avatar, CheckBox, Rating } from 'react-native-elements';
-import { ProfileInput, TextCustom, CustomButton } from '../../Components';
+import { connect } from 'react-redux';
+import { updateProfile } from '../Auth/action'
+import { ProfileInput, TextCustom, CustomButton, LoadingStatus } from '../../Components';
 import Colors from '../../../constans/Colors';
 
-export default class Profile extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
       editProfile: false,
       male: false,
       female: false,
-      firstName: 'Jane',
-      lastName: 'Doe',
-      email: 'janedoe@gmail.com',
+      gender: null,
+      firstName: null,
+      lastName: null,
+      email: null,
       password: '',
       confirmPassword: '',
       phone: '',
@@ -21,7 +24,35 @@ export default class Profile extends Component {
     };
   }
 
+  componentDidMount(){
+    const { user } = this.props;
+
+    if(user.gender === 'MALE'){
+      this.setState({ male: true})
+    } else {
+      this.setState({ female: true})
+    }
+    this.setState({
+      firstName: user.name,
+      lastName: user.name,
+      email: user.email,
+      phone: user.phone,
+      gender: user.gender
+
+    })
+  }
+  async updateProfile(){
+    const {firstName, lastName, email, password, confirmPassword, phone, gender } = this.state;
+    let name = firstName;
+    await this.props.updateProfile({name, lastName, email, phone, gender})
+    this.setState({ editProfile: false})
+  }
   render() {
+    const { user, loading } = this.props;
+    const { editProfile } = this.state;
+    if(loading){
+      return <LoadingStatus loading />
+    }
     return (
       <ScrollView
         contentContainerStyle={{ flex: 1 }}
@@ -52,39 +83,37 @@ export default class Profile extends Component {
           }}
           ><View style={{ flex: 1 }}>
               <ProfileInput
-
                 label={this.state.firstName}
-                editable={this.state.editProfile}
-                onChangeText={(e) => this.setState({ name: e })}
+                editable={editProfile}
+                onChangeText={(e) => this.setState({ firstName: e })}
               />
             </View>
             <View style={{ flex: 1, marginLeft: 5 }}>
               <ProfileInput
-
                 label={this.state.lastName}
-                editable={this.state.editProfile}
-                onChangeText={(e) => this.setState({ name: e })}
+                editable={editProfile}
+                onChangeText={(e) => this.setState({ lastName: e })}
               />
             </View>
           </View>
           <ProfileInput
             label={this.state.email}
-            editable={this.state.editProfile}
+            editable={editProfile}
             onChangeText={(e) => this.setState({ email: e })}
           />
           <ProfileInput
             label='********'
-            editable={this.state.editProfile}
+            editable={editProfile}
             onChangeText={(e) => this.setState({ password: e })}
           />
           <ProfileInput
             label='********'
-            editable={this.state.editProfile}
+            editable={editProfile}
             onChangeText={(e) => this.setState({ confirmPassword: e })}
           />
           <ProfileInput
-            label='347-777-7777'
-            editable={this.state.editProfile}
+            label={this.state.phone}
+            editable={editProfile}
             onChangeText={(e) => this.setState({ phone: e })}
           />
           <View style={{ paddingTop: 15, padding: 10 }}>
@@ -102,7 +131,10 @@ export default class Profile extends Component {
               uncheckedColor={Colors.purple}
               checkedColor={Colors.purple}
               checked={this.state.male}
-              onPress={() => this.setState({ male: true, female: false })}
+              onPress={() => editProfile?
+                this.setState({ male: true, female: false, gender: 'MALE' }) :
+                null
+              }
             />
             <CheckBox
               right
@@ -115,17 +147,20 @@ export default class Profile extends Component {
               uncheckedColor={Colors.purple}
               checkedColor={Colors.purple}
               checked={this.state.female}
-              onPress={() => this.setState({ female: true, male: false })}
+              onPress={() => editProfile?
+                this.setState({ female: true, male: false, gender: 'FEMALE' }) :
+                null
+              }
             />
           </View>
           <View style={{ flex: 0.5, justifyContent: 'center' }}>
             <CustomButton
-              gradient={this.state.editProfile}
+              gradient={editProfile}
               style={{ marginTop: 20 }}
               border={!this.state.editProfile}
               title={this.state.editProfile ? 'SAVE' : 'EDIT PROFILE'}
               titleColor={Colors.purple}
-              onPress={() => this.setState({ editProfile: !this.state.editProfile })}
+              onPress={() => editProfile ? this.updateProfile() : this.setState({ editProfile: !this.state.editProfile })}
             />
           </View>
         </View>
@@ -172,3 +207,11 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
 });
+
+
+const mapStateToProps = ({ Auth }) => {
+  const { user, loading } = Auth;
+  return { user, loading }
+}
+
+export default connect(mapStateToProps, { updateProfile })(Profile)

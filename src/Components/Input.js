@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { Input, Icon } from 'react-native-elements';
 import Colors from '../../constans/Colors';
 
-export const TextInput = ({ placeholder, icon, onChangeText, secureTextEntry, error, label, password }) => (
+export const TextInput = ({ placeholder, icon, onChangeText, secureTextEntry, error, label, password, containerStyle }) => (
   <Input
     placeholder={placeholder}
     onChangeText={onChangeText}
@@ -17,6 +17,7 @@ export const TextInput = ({ placeholder, icon, onChangeText, secureTextEntry, er
     rightIconContainerStyle={{ backgroundColor: 'white' }}
     inputContainerStyle={styles.inputContainerStyle}
     inputStyle={styles.inputStyle}
+    containerStyle={containerStyle}
     errorMessage={
       error ? `Please enter ${label}.` :
         password ? 'Password must be at least 8 characters long.' :

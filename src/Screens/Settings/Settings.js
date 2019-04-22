@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { View, ScrollView, Text, Image, StyleSheet } from 'react-native';
 import { TextCustom, SelectButton, CustomButton } from '../../Components';
+import { connect } from 'react-redux'
+import { userLogout } from '../Auth/action'
 import Colors from '../../../constans/Colors';
 
-export default class Settings extends Component {
+class Settings extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
-
+async logOut(){
+  await this.props.userLogout()
+  this.props.navigation.navigate('Auth')
+}
   render() {
     return (
       <ScrollView
@@ -73,7 +78,11 @@ export default class Settings extends Component {
           </View>
         </View> */}
         <View style={styles.button}>
-          <CustomButton title='LOGOUT' gradient />
+          <CustomButton
+            title='LOGOUT'
+            gradient
+            onPress={() => this.logOut()}
+            />
 
         </View>
 
@@ -105,5 +114,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     justifyContent: 'center',
   },
-})
-;
+});
+
+export default connect(null, { userLogout })(Settings)

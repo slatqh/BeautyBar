@@ -25,7 +25,8 @@ class UserApi {
 
   async signOut() {
     try {
-      await axios.post(`${keys.LOCALHOST}/user/signout`);
+      const { data } = await axios.post(`${keys.LOCALHOST}/user/signout`);
+      return data;
     } catch (error) {
       throw error;
     }
