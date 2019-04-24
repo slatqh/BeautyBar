@@ -6,7 +6,6 @@ import {
   CardPrice,
   TextCustom,
   CustomButton,
-  EmployeeSelect,
 } from '../../Components';
 import Colors from '../../../constans/Colors';
 

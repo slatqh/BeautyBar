@@ -32,7 +32,7 @@ class CreateAccount extends Component {
       passwordError: false,
       passwordConfirmError: false,
       genderError: false,
-      avatarSource: ''
+      avatarSource: '',
     };
   }
 
@@ -50,7 +50,7 @@ class CreateAccount extends Component {
     } else if (password === null || password.length < 7) {
       this.setState({ passwordError: true });
       return;
-    }else if (confirmPassword === null || confirmPassword.length < 1) {
+    } else if (confirmPassword === null || confirmPassword.length < 1) {
       this.setState({ passwordConfirmError: true });
       return;
     } else if (password !== confirmPassword) {
@@ -160,9 +160,9 @@ class CreateAccount extends Component {
           />
         </View>
         <View style={styles.wrap}>
-          <View style={{ flexDirection: 'row'}}>
+          <View style={{ flexDirection: 'row' }}>
             <TextInput
-            containerStyle={{ flex: 1}}
+              containerStyle={{ flex: 1 }}
               placeholder='FIRST NAME'
               label='first name'
               onChangeText={(e) => this.setState({ name: e, nameError: false })}
@@ -170,7 +170,7 @@ class CreateAccount extends Component {
             />
             <TextInput
               placeholder='LAST NAME'
-              containerStyle={{ flex: 1}}
+              containerStyle={{ flex: 1 }}
               label='last name'
               onChangeText={(e) => this.setState({ lastName: e, lastNameError: false })}
               error={!!this.state.lastNameError}

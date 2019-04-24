@@ -20,7 +20,7 @@ class Login extends Component {
     if (email === null) {
       this.setState({ emailError: true });
       return;
-    } else if (password === null || email.length < 7) {
+    } else if (password === null || password.length < 7) {
       this.setState({ passwordError: true });
     }
     await this.props.login({ email, password });

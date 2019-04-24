@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView, Image, Dimensions, StyleSheet } from 'react-native';
 import { Overlay } from 'react-native-elements';
+import MapView from 'react-native-maps';
 import {
   CardView,
   BeautyIcon,
@@ -12,7 +13,6 @@ import {
   TextCustom,
 } from '../../Components';
 import Colors from '../../../constans/Colors';
-import MapView from 'react-native-maps';
 
 const { width } = Dimensions.get('window');
 
@@ -38,15 +38,15 @@ export default class FeedScreen extends Component {
           bounces={false}
         >
           <MapView
-        style={{flex: 1, width: '100%', height: 300}}
-        region={{
-          latitude: 42.882004,
-          longitude: 74.582748,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421
-        }}
-        showsUserLocation={true}
-      />
+            style={{ flex: 1, width: '100%', height: 300 }}
+            region={{
+              latitude: 42.882004,
+              longitude: 74.582748,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+            showsUserLocation
+          />
           <View style={{ flex: 1, backgroundColor: 'white' }}>
             <View style={styles.devider} />
             <ScrollView
