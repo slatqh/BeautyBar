@@ -65,7 +65,7 @@ class Profile extends Component {
             icon={{ name: 'user', type: 'font-awesome' }}
             size='large'
             rounded
-            source={require('../../../assets/images/avatar.jpeg')}
+            source={require('../../../assets/images/avatar.svg')}
           />
           <Rating
             type='custom'

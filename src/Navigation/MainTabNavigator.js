@@ -27,7 +27,7 @@ export const AuthStack = createStackNavigator({
   defaultNavigationOptions: {
     header: null,
   },
-  initialRouteName: 'Login',
+  initialRouteName: 'Signup',
 });
 
 const FeedStack = createStackNavigator({

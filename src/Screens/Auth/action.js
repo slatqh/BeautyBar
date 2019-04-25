@@ -74,44 +74,43 @@ function loginFailed(error) {
 }
 
 // user logout
-export function userLogout(){
+export function userLogout() {
   return async dispatch => {
-    dispatch({ type: USER_LOGOUT})
+    dispatch({ type: USER_LOGOUT });
     try {
-      const data = await User.signOut()
-      if(data.success){
-        dispatch({ type: USER_LOGOUT_SUCCESS })
+      const data = await User.signOut();
+      if (data.success) {
+        dispatch({ type: USER_LOGOUT_SUCCESS });
       }
     } catch (error) {
-      throw new error
+      throw new error;
     }
-  }
+  };
 }
 
 // user profile update
 
-export function updateProfile(args){
+export function updateProfile(args) {
   return async dispatch => {
-    dispatch({ type: UPDATING_PROFILE})
+    dispatch({ type: UPDATING_PROFILE });
     try {
-      const data = await User.profileUpdate(args)
-      return dispatch(profileUpdatedSuccess(data, dispatch))
+      const data = await User.profileUpdate(args);
+      return dispatch(profileUpdatedSuccess(data, dispatch));
     } catch (error) {
-      return dispatch(profileUpdateFailed(error, dispatch))
+      return dispatch(profileUpdateFailed(error, dispatch));
     }
-  }
+  };
 }
 
-
-function profileUpdatedSuccess(data, dispatch){
-   return dispatch({
-     type: PROFILE_UPDATED_SUCCESS,
-     payload: data,
-   })
+function profileUpdatedSuccess(data, dispatch) {
+  return dispatch({
+    type: PROFILE_UPDATED_SUCCESS,
+    payload: data,
+  });
 }
-function profileUpdateFailed(error, dispatch){
-   return dispatch({
-     type: PROFILE_UPDATED_FAILED,
-     payload: error,
-   })
+function profileUpdateFailed(error, dispatch) {
+  return dispatch({
+    type: PROFILE_UPDATED_FAILED,
+    payload: error,
+  });
 }

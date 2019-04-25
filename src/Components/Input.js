@@ -10,6 +10,7 @@ export const TextInput = ({ placeholder, icon, onChangeText, secureTextEntry, er
     autoCapitalize='none'
     placeholderTextColor={Colors.grey}
     autoCorrect={false}
+
     secureTextEntry={secureTextEntry}
     underlineColorAndroid="transparent"
     keyboardAppearance='default'
@@ -37,7 +38,9 @@ const styles = StyleSheet.create({
   inputContainerStyle: {
     borderBottomColor: Colors.lightgrey,
     opacity: 0.9,
-    marginBottom: 3,
+    height: 20,
+    paddingBottom: 12.5,
+    paddingTop: 25,
   },
   inputStyle: {
     color: Colors.grey,
@@ -45,5 +48,11 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     letterSpacing: 5,
     fontFamily: 'montserrat',
+
   },
+  containerStyle: {
+    margin: 0,
+    padding: 0,
+    marginTop: 10,
+  }
 });

@@ -69,12 +69,12 @@ class Login extends Component {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginHorizontal: 15 }}>
             <TouchableOpacity>
-              <TextCustom title='FORGOT DETAILS?' size={10} />
+              <TextCustom title='FORGOT DETAILS?' size={10} styles={{ fontWeight: '500' }}/>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('Signup')}
             >
-              <TextCustom title='CREATE ACCOUNT' size={10} />
+              <TextCustom title='CREATE ACCOUNT' size={10}  styles={{ fontWeight: '500' }} />
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
