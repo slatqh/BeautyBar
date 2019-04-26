@@ -8,14 +8,9 @@ import Colors from '../../../constans/Colors';
 class PastBookings extends React.Component {
   CancelButton = () => (
     <View style={styles.cancelButton}>
-      <Icon
-        name='trash'
-        size={25}
-        type='FontAwesome5'
-        color='white'
-      />
+      <Icon name="trash" size={25} type="FontAwesome5" color="white" />
       <TextCustom
-        title='CANCEL'
+        title="CANCEL"
         size={10}
         styles={{ color: 'white', marginTop: 5 }}
       />
@@ -30,7 +25,6 @@ class PastBookings extends React.Component {
         width: 30,
         height: 60,
         component: this.CancelButton(),
-
       },
     ];
     return (
@@ -39,46 +33,39 @@ class PastBookings extends React.Component {
           <View style={{ flex: 1 }}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => this.props.navigation.navigate('BookingTab')}
-            >
+              onPress={() => this.props.navigation.navigate('BookingTab')}>
               <Text style={styles.reviews}>UPCOMING BOOKINGS</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.buttonBorder}>
             <TouchableOpacity
               style={styles.button}
-              onPress={() => this.props.navigation.navigate('Booking')}
-            >
+              onPress={() => this.props.navigation.navigate('Booking')}>
               <Text style={styles.reviews}>PAST BOOKINGS</Text>
             </TouchableOpacity>
           </View>
         </View>
         <View style={{ flex: 1, marginRight: 15 }}>
           <Swipeout
-            backgroundColor='white'
+            backgroundColor="white"
             style={styles.swipes}
-            right={swipeoutBtns}
-          >
+            right={swipeoutBtns}>
             <BookingCard />
           </Swipeout>
           <Swipeout
-            backgroundColor='white'
+            backgroundColor="white"
             style={styles.swipes}
-            right={swipeoutBtns}
-          >
+            right={swipeoutBtns}>
             <BookingCard />
           </Swipeout>
           <Swipeout
-            backgroundColor='white'
+            backgroundColor="white"
             style={styles.swipes}
-            right={swipeoutBtns}
-          >
+            right={swipeoutBtns}>
             <BookingCard />
           </Swipeout>
-
         </View>
       </View>
-
     );
   }
 }
@@ -121,7 +108,9 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
   cancelButton: {
-    flex: 1, alignItems: 'center', justifyContent: 'center',
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 export default PastBookings;

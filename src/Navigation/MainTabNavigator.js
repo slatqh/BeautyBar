@@ -1,5 +1,8 @@
 import React from 'react';
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import {
+  createBottomTabNavigator,
+  createStackNavigator,
+} from 'react-navigation';
 import { TabIcon } from '../Components';
 import {
   AuthMain,
@@ -19,90 +22,107 @@ import {
 } from '../Screens';
 import Colors from '../../constans/Colors';
 
-export const AuthStack = createStackNavigator({
-  Auth: AuthMain,
-  Login,
-  Signup: CreateAccount,
-}, {
-  defaultNavigationOptions: {
-    header: null,
+export const AuthStack = createStackNavigator(
+  {
+    Auth: AuthMain,
+    Login,
+    Signup: CreateAccount,
   },
-  initialRouteName: 'Signup',
-});
-
-const FeedStack = createStackNavigator({
-  FeedMain: FeedScreen,
-  FeedDetails,
-  About,
-  Reviews,
-  BookingScreen,
-  BookingDetails,
-  ConfirmFinal,
-}, {
-  initialRouteName: 'FeedMain',
-  defaultNavigationOptions: {
-    header: null,
-  },
-  navigationOptions: () => ({
-    tabBarIcon: ({ focused }) => <TabIcon name='feed' active={focused} />,
-  }),
-});
-
-const BookingStack = createStackNavigator({
-  BookingTab,
-  PastBookings,
-}, {
-  defaultNavigationOptions: {
-    headerLeft: null,
-    headerStyle: {
-      backgroundColor: 'white',
+  {
+    defaultNavigationOptions: {
+      header: null,
     },
-    headerTitle: 'BOOKINGS',
-    headerTintColor: Colors.purple,
-    headerTitleStyle: {
-      fontSize: 22,
-      letterSpacing: 1,
-      fontFamily: 'montserrat-medium',
-      fontWeight: '300',
+    initialRouteName: 'Login',
+  },
+);
+
+const FeedStack = createStackNavigator(
+  {
+    FeedMain: FeedScreen,
+    FeedDetails,
+    About,
+    Reviews,
+    BookingScreen,
+    BookingDetails,
+    ConfirmFinal,
+  },
+  {
+    initialRouteName: 'BookingDetails',
+    defaultNavigationOptions: {
+      header: null,
+    },
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => <TabIcon name="feed" active={focused} />,
+    }),
+  },
+);
+
+const BookingStack = createStackNavigator(
+  {
+    BookingTab,
+    PastBookings,
+  },
+  {
+    defaultNavigationOptions: {
+      headerLeft: null,
+      headerStyle: {
+        backgroundColor: 'white',
+      },
+      headerTitle: 'BOOKINGS',
+      headerTintColor: Colors.purple,
+      headerTitleStyle: {
+        fontSize: 22,
+        letterSpacing: 1,
+        fontFamily: 'montserrat-medium',
+        fontWeight: '300',
+      },
+    },
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => <TabIcon name="booking" active={focused} />,
+    }),
+  },
+);
+
+const ProfileStack = createStackNavigator(
+  {
+    Profile,
+  },
+  {
+    defaultNavigationOptions: {
+      header: null,
+    },
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => <TabIcon name="profile" active={focused} />,
+    }),
+  },
+);
+
+const SettingsStack = createStackNavigator(
+  {
+    Settings,
+  },
+  {
+    defaultNavigationOptions: {
+      header: null,
+    },
+    navigationOptions: () => ({
+      tabBarIcon: ({ focused }) => <TabIcon name="settings" active={focused} />,
+    }),
+  },
+);
+
+export const App = createBottomTabNavigator(
+  {
+    Feed: FeedStack,
+    Booking: BookingStack,
+    Profile: ProfileStack,
+    Settings: SettingsStack,
+  },
+  {
+    initialRouteName: 'Feed',
+    tabBarOptions: {
+      activeTintColor: Colors.purple,
+      labelStyle: { justifyContent: 'center', marginTop: -5 },
     },
   },
-  navigationOptions: () => ({
-    tabBarIcon: ({ focused }) => <TabIcon name='booking' active={focused} />,
-  }),
-});
-
-const ProfileStack = createStackNavigator({
-  Profile,
-}, {
-  defaultNavigationOptions: {
-    header: null,
-  },
-  navigationOptions: () => ({
-    tabBarIcon: ({ focused }) => <TabIcon name='profile' active={focused} />,
-  }),
-});
-
-const SettingsStack = createStackNavigator({
-  Settings,
-}, {
-  defaultNavigationOptions: {
-    header: null,
-  },
-  navigationOptions: () => ({
-    tabBarIcon: ({ focused }) => <TabIcon name='settings' active={focused} />,
-  }),
-});
-
-export const App = createBottomTabNavigator({
-  Feed: FeedStack,
-  Booking: BookingStack,
-  Profile: ProfileStack,
-  Settings: SettingsStack,
-}, {
-  initialRouteName: 'Feed',
-  tabBarOptions: {
-    activeTintColor: Colors.purple,
-    labelStyle: { justifyContent: 'center', marginTop: -5 },
-  },
-});
-
+);
