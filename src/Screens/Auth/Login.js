@@ -1,9 +1,20 @@
-
 import React, { Component } from 'react';
-import { View, Image, SafeAreaView, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import {
+  View,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
 import { connect } from 'react-redux';
 import { login } from './action';
-import { CustomButton, TextInput, TextCustom, LoadingStatus } from '../../Components';
+import {
+  CustomButton,
+  TextInput,
+  TextCustom,
+  LoadingStatus,
+} from '../../Components';
 
 class Login extends Component {
   constructor(props) {
@@ -31,59 +42,91 @@ class Login extends Component {
 
   render() {
     return (
-
       <View style={{ flex: 1 }}>
-        {
-          this.props.loading ? <LoadingStatus loading={this.props.loading} /> : null
-        }
+        {!this.props.loading ? (
+          <LoadingStatus loading={this.props.loading} />
+        ) : null}
         <View style={{ flex: 1 }}>
           <SafeAreaView>
             <Image
               style={styles.image}
               source={require('../../../assets/images/AuthLogo.png')}
-              resizeMode='center'
+              resizeMode="center"
             />
-
           </SafeAreaView>
         </View>
         <View style={styles.text}>
-
           <TextInput
-            placeholder='EMAIL'
-            label='email'
-            onChangeText={(e) => this.setState({ email: e, emailError: '' })}
+            placeholder="EMAIL"
+            label="email"
+            onChangeText={e => this.setState({ email: e, emailError: '' })}
             error={!!this.state.emailError}
           />
           <TextInput
-            placeholder='PASSWORD'
+            placeholder="PASSWORD"
             secureTextEntry
-            onChangeText={(e) => this.setState({ password: e, passwordError: '' })}
+            onChangeText={e =>
+              this.setState({ password: e, passwordError: '' })
+            }
             password={!!this.state.passwordError}
           />
           <View style={{ margin: 15 }}>
             <CustomButton
-              title='SIGN IN'
+              title="SIGN IN"
               gradient
-              onPress={() => this.signIn()}
+              //onPress={() => this.signIn()}
+              onPress={() => this.props.navigation.navigate('App')}
             />
           </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 20, marginHorizontal: 15 }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 20,
+              marginHorizontal: 15,
+            }}>
             <TouchableOpacity>
-              <TextCustom title='FORGOT DETAILS?' size={10} styles={{ fontWeight: '500' }}/>
+              <TextCustom
+                title="FORGOT DETAILS?"
+                size={10}
+                styles={{ fontWeight: '500' }}
+              />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Signup')}
-            >
-              <TextCustom title='CREATE ACCOUNT' size={10}  styles={{ fontWeight: '500' }} />
+              onPress={() => this.props.navigation.navigate('Signup')}>
+              <TextCustom
+                title="CREATE ACCOUNT"
+                size={10}
+                styles={{ fontWeight: '500' }}
+              />
             </TouchableOpacity>
           </View>
-          <View style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
-            <Text style={{ alignSelf: 'center', fontFamily: 'montserrat', color: '#7f8184', fontSize: 12 }}>
-                CLICK HERE FOR
+          <View
+            style={{ flex: 1, alignSelf: 'center', justifyContent: 'center' }}>
+            <Text
+              style={{
+                alignSelf: 'center',
+                fontFamily: 'montserrat',
+                color: '#7f8184',
+                fontSize: 12,
+              }}>
+              CLICK HERE FOR
             </Text>
-            <Text style={{ fontFamily: 'montserrat', color: '#7f8184', fontSize: 12 }}>
-                BEAUTY BAR FOR {' '}
-              <Text style={{ fontFamily: 'montserrat-semiBold', fontSize: 12, paddingLeft: 3 }}>BUSINESS</Text>
+            <Text
+              style={{
+                fontFamily: 'montserrat',
+                color: '#7f8184',
+                fontSize: 12,
+              }}>
+              BEAUTY BAR FOR{' '}
+              <Text
+                style={{
+                  fontFamily: 'montserrat-semiBold',
+                  fontSize: 12,
+                  paddingLeft: 3,
+                }}>
+                BUSINESS
+              </Text>
             </Text>
           </View>
         </View>
@@ -110,5 +153,7 @@ const mapStateToProps = ({ Auth }) => {
   return { loading, isLoggin };
 };
 
-export default connect(mapStateToProps, { login })(Login)
-;
+export default connect(
+  mapStateToProps,
+  { login },
+)(Login);

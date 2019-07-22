@@ -47,7 +47,7 @@ const FeedStack = createStackNavigator(
     ConfirmFinal,
   },
   {
-    initialRouteName: 'BookingDetails',
+    initialRouteName: 'FeedMain',
     defaultNavigationOptions: {
       header: null,
     },
