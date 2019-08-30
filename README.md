@@ -10,9 +10,6 @@ https://www.youtube.com/embed/_v2J-R61B4s
 
 
 
-
-<div align='center' >
-  [![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/embed/_v2J-R61B4s)
-</div>
+[![Alt text](http://www.dblot.io/static/media/beautybar.e2ee3403.jpg)](https://www.youtube.com/embed/_v2J-R61B4s)
 
 
