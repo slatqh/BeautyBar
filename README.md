@@ -12,7 +12,7 @@ https://www.youtube.com/embed/_v2J-R61B4s
 
 
 <div align='center' >
-<iframe src="https://www.youtube.com/embed/_v2J-R61B4s" width='300' height='600' align='center'>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_v2J-R61B4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 
