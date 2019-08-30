@@ -12,6 +12,7 @@ https://www.youtube.com/embed/_v2J-R61B4s
 
 
 <div align='center' >
+  [![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://www.youtube.com/watch?v=https://www.youtube.com/embed/_v2J-R61B4s)
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_v2J-R61B4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
